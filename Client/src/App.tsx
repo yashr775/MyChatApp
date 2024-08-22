@@ -14,7 +14,6 @@ const App = () => {
   return (
     <div>
       <Router>
-        <span>Header</span>
         <Routes>
           <Route element={<ProtectRoute user={user} children={undefined} />}>
             <Route path="/" element={<Home />} />
@@ -22,6 +21,7 @@ const App = () => {
             <Route path="/chat/:chatId" element={<Chat />} />
           </Route>
           <Route
+            path="/login"
             element={
               <ProtectRoute user={!user} redirect="/">
                 {" "}
