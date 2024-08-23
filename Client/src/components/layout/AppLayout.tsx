@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 const AppLayout = <P extends object>(WrappedComponent: ComponentType<P>) => {
   return (props: P) => {
     return (
-      <div>
+      <div style={{ height: "100vh" }}>
         <Title />
         <Header />
         <Grid container height={"calc(100vh - 4rem)"}>
