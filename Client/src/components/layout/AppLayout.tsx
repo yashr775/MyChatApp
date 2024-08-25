@@ -1,11 +1,17 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { ComponentType } from "react";
 import Title from "../shared/Title";
 import Header from "./Header";
 import { Grid } from "@mui/material";
 import ChatList from "../specific/ChatList";
+import { useParams } from "react-router-dom";
+// import { sampleChats } from "../../constants/sampleData";
 
 const AppLayout = <P extends object>(WrappedComponent: ComponentType<P>) => {
   return (props: P) => {
+    const params = useParams();
+    const chatId = params.chatId;
+
     return (
       <div style={{ height: "100vh" }}>
         <Title />
@@ -19,7 +25,7 @@ const AppLayout = <P extends object>(WrappedComponent: ComponentType<P>) => {
             sx={{ display: { xs: "none", sm: "block" } }}
             height={"100%"}
           >
-            <ChatList chats={[1, 2, 3, 4, 5]} />
+            <ChatList chats={[1]} avatar={[]} chatId={chatId} />
           </Grid>
           <Grid item xs={12} sm={8} md={5} lg={4} height={"100%"}>
             {" "}
