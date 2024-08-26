@@ -12,6 +12,16 @@ const AppLayout = <P extends object>(WrappedComponent: ComponentType<P>) => {
     const params = useParams();
     const chatId = params.chatId;
 
+    const handleDeleteChatOpen = (
+      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+      _id: string,
+      groupChat: boolean
+    ) => {
+      e.preventDefault();
+      console.log(_id + " " + groupChat);
+      console.log("dfng,dsfjkgfdfsgdsgds");
+    };
+
     return (
       <div style={{ height: "100vh" }}>
         <Title />
@@ -25,7 +35,12 @@ const AppLayout = <P extends object>(WrappedComponent: ComponentType<P>) => {
             sx={{ display: { xs: "none", sm: "block" } }}
             height={"100%"}
           >
-            <ChatList chats={[1]} avatar={[]} chatId={chatId} />
+            <ChatList
+              chats={[1]}
+              avatar={[]}
+              chatId={chatId}
+              handleDeleteChatOpen={handleDeleteChatOpen}
+            />
           </Grid>
           <Grid item xs={12} sm={8} md={5} lg={4} height={"100%"}>
             {" "}

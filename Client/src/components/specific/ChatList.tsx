@@ -19,6 +19,11 @@ interface ChatListProps {
     chatId: string;
     count: number;
   }[];
+  handleDeleteChatOpen: (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    _id: string,
+    groupChat: boolean
+  ) => void;
 }
 
 const ChatList = ({
@@ -27,6 +32,7 @@ const ChatList = ({
   chatId = "kjlhldfig",
   onlineUsers = [],
   newMessageAlert = [],
+  handleDeleteChatOpen,
 }: ChatListProps) => {
   return (
     <Stack width={w} direction={"column"}>
@@ -38,13 +44,7 @@ const ChatList = ({
             sameSender={true}
             isOnline={true}
             newMessageAlert={[{ _id: chatId, count: 5 }]}
-            handleDeleteChatOpen={function (
-              e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-              _id: string,
-              groupChat: boolean
-            ): void {
-              throw new Error("Function not implemented.");
-            }}
+            handleDeleteChatOpen={handleDeleteChatOpen}
           />
         );
       })}

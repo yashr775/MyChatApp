@@ -2,6 +2,7 @@
 import React, { memo } from "react";
 import { Link } from "../styles/stylecomponents";
 import { Box, Stack, Typography } from "@mui/material";
+import AvatarCard from "./AvatarCard";
 
 interface ChatItemPropTypes {
   avatar?: string[]; // avatar is an optional string (URL or image path)
@@ -47,6 +48,7 @@ const ChatItem = ({
         }}
       >
         {" "}
+        <AvatarCard />
         <Stack>
           <Typography>{name}</Typography>
           {newMessageAlert && (
