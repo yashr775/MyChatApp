@@ -10,7 +10,7 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Search as SearchIcon } from "@mui/icons-material";
 import UserItem from "../shared/UserItem";
 
@@ -19,10 +19,21 @@ import UserItem from "../shared/UserItem";
 //   email: string;
 // }
 
+interface userType {
+  name: string;
+  _id: string;
+  avatar: string;
+}
+
 const users = [1, 2, 3];
 
 const Search = () => {
   const search = useInputValidation("");
+  const [userData, setUserData] = useState<userType>({
+    name: "gfhhfgh",
+    _id: "5433",
+    avatar: "https://www.w3schools/howto/img_avatar.png",
+  });
 
   const addFriendHandler = (id: string) => {
     console.log(id);
@@ -49,11 +60,7 @@ const Search = () => {
         <List>
           {users.map((user) => (
             <UserItem
-              user={{
-                name: "gfhhfgh",
-                _id: "5433",
-                avatar: "https://www.w3schools/howto/img_avatar.png",
-              }}
+              user={userData}
               handler={function (_id: string): void {
                 throw new Error("Function not implemented.");
               }}
