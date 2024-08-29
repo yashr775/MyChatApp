@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { memo } from "react";
+import { memo } from "react";
 
 interface NotificationType {
   sender: {

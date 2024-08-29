@@ -2,14 +2,14 @@ import { ListItem, Stack, Avatar, Typography, IconButton } from "@mui/material";
 import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
 import React, { memo } from "react";
 
-interface UserItemPropTypes {
+export interface UserItemPropTypes {
   user: {
     name: string;
     _id: string;
     avatar: string;
   };
   handler: (_id: string) => void;
-  handlerIsLoading: boolean;
+  handlerIsLoading?: boolean;
   isAdded?: boolean;
 }
 
