@@ -1,6 +1,7 @@
 import { Avatar, AvatarGroup, Box, Stack } from "@mui/material";
 import React from "react";
 import avatarImage from "../../avatars/man.png";
+import { transformImage } from "../../lib/features";
 
 interface AvatarCardPropType {
   avatar?: string[];
@@ -24,7 +25,7 @@ const AvatarCard = ({
             <Avatar
               key={Math.random() * 100}
               alt={`Avatar ${index}`}
-              src={i}
+              src={transformImage(i)}
               sx={{
                 width: "3rem",
                 height: "3rem",

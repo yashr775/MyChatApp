@@ -9,6 +9,49 @@ import {
 } from "@mui/icons-material";
 import { InputBox } from "../components/styles/stylecomponents";
 import FileMenu from "../components/dialogs/FileMenu";
+import MessageComponent, {
+  MessageComponentPropTypes,
+} from "../components/shared/MessageComponent";
+
+const user = {
+  _id: "qwqeqwe",
+  name: "aman",
+};
+
+const sampleMessages: MessageComponentPropTypes[] = [
+  {
+    attachments: [
+      {
+        public_id: "ldkfjldkds",
+        url: "",
+      },
+    ],
+    content: "Random message",
+    _id: "kcvcxvxcxcv",
+    sender: {
+      _id: "qewerwqe",
+      name: "Aman",
+    },
+    chat: "chatId",
+    createdAt: "2024-08-30T04:04:08.736183Z",
+  },
+  {
+    attachments: [
+      {
+        public_id: "ldkfjldkds2",
+        url: "https://www.w3schools/howto/img_avatar.png",
+      },
+    ],
+    content: "Random message2",
+    _id: "kcvcxvxcxcv2",
+    sender: {
+      _id: "qwqeqwe",
+      name: "Aman2",
+    },
+    chat: "chatId2",
+    createdAt: "2024-08-30T04:04:08.736183Z",
+  },
+];
 
 const Chat = () => {
   const containerRef = useRef(null);
@@ -27,7 +70,20 @@ const Chat = () => {
           overflowX: "hidden",
           overflowY: "auto",
         }}
-      ></Stack>
+      >
+        {sampleMessages.map((message) => (
+          <MessageComponent
+            key={message._id} // Ensure each child in a list has a unique key
+            attachments={message.attachments}
+            content={message.content}
+            _id={message._id}
+            sender={message.sender}
+            chat={message.chat}
+            createdAt={message.createdAt}
+            user={user}
+          />
+        ))}
+      </Stack>
       <form style={{ height: "10%" }}>
         <Stack
           direction={"row"}
