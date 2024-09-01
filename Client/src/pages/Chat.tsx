@@ -39,7 +39,7 @@ const sampleMessages: MessageComponentPropTypes[] = [
     attachments: [
       {
         public_id: "ldkfjldkds2",
-        url: "https://www.w3schools/howto/img_avatar.png",
+        url: "https://www.w3schools.com/howto/img_avatar.png",
       },
     ],
     content: "Random message2",
@@ -54,8 +54,13 @@ const sampleMessages: MessageComponentPropTypes[] = [
 ];
 
 const Chat = () => {
-  const containerRef = useRef(null);
-  const fileMenuRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const fileMenuRef = useRef<HTMLButtonElement>(null);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    // Handle form submission logic here
+  };
 
   return (
     <Fragment>
@@ -84,7 +89,7 @@ const Chat = () => {
           />
         ))}
       </Stack>
-      <form style={{ height: "10%" }}>
+      <form style={{ height: "10%" }} onSubmit={handleSubmit}>
         <Stack
           direction={"row"}
           height={"100%"}
