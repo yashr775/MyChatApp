@@ -19,7 +19,7 @@ import {
   Groups as GroupsIcon,
   ManageAccounts as ManageAccountsIcon,
 } from "@mui/icons-material";
-import { Link as LinkComponent, useLocation } from "react-router-dom";
+import { Link as LinkComponent, Navigate, useLocation } from "react-router-dom";
 
 const Link = styled(LinkComponent)`
   text-decoration: none;
@@ -106,6 +106,7 @@ const Sidebar = ({ w = "100p%" }) => {
 
 const AdminLayout: React.FC<AdminLayoutPropTypes> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const isAdmin = true;
 
   const handleMobile = () => {
     setIsMobile((prev) => !prev);
@@ -114,6 +115,8 @@ const AdminLayout: React.FC<AdminLayoutPropTypes> = ({ children }) => {
   const handleClose = () => {
     setIsMobile(false);
   };
+
+  if (!isAdmin) <Navigate to="/admin" />;
 
   return (
     <Grid container minHeight={"100vh"}>
