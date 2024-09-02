@@ -1,4 +1,11 @@
-import { ListItem, Stack, Avatar, Typography, IconButton } from "@mui/material";
+import {
+  ListItem,
+  Stack,
+  Avatar,
+  Typography,
+  IconButton,
+  StackProps,
+} from "@mui/material";
 import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
 import React, { memo } from "react";
 
@@ -11,6 +18,7 @@ export interface UserItemPropTypes {
   handler: (_id: string) => void;
   handlerIsLoading?: boolean;
   isAdded?: boolean;
+  styling?: StackProps;
 }
 
 const UserItem = ({
@@ -18,6 +26,7 @@ const UserItem = ({
   handler,
   handlerIsLoading,
   isAdded = false,
+  styling,
 }: UserItemPropTypes) => {
   const { name, _id, avatar } = user;
 
@@ -28,6 +37,7 @@ const UserItem = ({
         alignItems={"center"}
         spacing={"1rem"}
         width={"100%"}
+        {...styling}
       >
         <Avatar src={avatar} />
 
