@@ -7,12 +7,15 @@ import { fileFormat } from "../../lib/features";
 import RenderAttachment from "./RenderAttachment";
 
 export interface MessageComponentPropTypes {
-  attachments: [
-    {
-      public_id: string;
-      url: string;
-    }
-  ];
+  attachments:
+    | [
+        {
+          public_id: string;
+          url: string;
+        }
+      ]
+    | []
+    | null;
   content: string;
   _id: string;
   sender: {
@@ -61,7 +64,8 @@ const MessageComponent = ({
         </Typography>
       )}
       {content && <Typography>{content}</Typography>}
-      {attachments.length > 0 &&
+      {attachments &&
+        attachments.length > 0 &&
         attachments.map((attachment, index) => {
           const url = attachment.url;
           const file = fileFormat(attachment.url);

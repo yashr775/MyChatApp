@@ -20,12 +20,7 @@ const user = {
 
 const sampleMessages: MessageComponentPropTypes[] = [
   {
-    attachments: [
-      {
-        public_id: "ldkfjldkds",
-        url: "",
-      },
-    ],
+    attachments: [],
     content: "Random message",
     _id: "kcvcxvxcxcv",
     sender: {
